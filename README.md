@@ -1,73 +1,46 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-distcrete
-=========
+githubPages
+===========
 
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) [![](http://cranlogs.r-pkg.org/badges/distcrete)](http://cran.rstudio.com/packages=distcrete)
+I have created this repository to generate static websites for my projects based on the README.md files. 
+The skeletons used here are modified according to the target repo for which I want to create the website.
 
-[![Travis-CI Build Status](https://travis-ci.org/reconhub/distcrete.svg?branch=master)](https://travis-ci.org/reconhub/distcrete) [![Build status](https://ci.appveyor.com/api/projects/status/uy5out71p9qkh93i/branch/master?svg=true)](https://ci.appveyor.com/project/thibautjombart/distcrete/branch/master) [![codecov.io](https://codecov.io/github/reconhub/distcrete/coverage.svg?branch=master)](https://codecov.io/github/reconhub/distcrete?branch=master)
 
-> Discrete Distribution Approximations
+Dependencies to install
+=======================
+```r
+# Install release version from CRAN
+install.packages("pkgdown")
 
-`distcrete` takes a distribution and a set of parameters and returns a list object with functions as elements. Each one is the equivalent to the function calls we typically expect to be able to do in R for a given distribution:
-
--   Density e.g.`dnorm`
--   Distribution function e.g. `pnorm`
--   Quantile function e.g. `qnorm`
--   Random generation e.g. `rnorm`
-
-Each function created by `distcrete` corresponds to the first letter of the non-discrete equivalent.
-
-``` r
-set.seed(415)
-d0 <- distcrete::distcrete("gamma", 1, shape = 3, w = 0)
-d0$d(1:10)
-#>  [1] 0.243022187 0.253486335 0.185086776 0.113451286 0.062683215
-#>  [6] 0.032332641 0.015882196 0.007521773 0.003462799 0.001558522
-d0$p(c(.1,.5))
-#> [1] 0.09958372 0.19115317
-d0$q(c(.1,.5))
-#> [1] 0 1
-d0$r(10)
-#>  [1]  2  3  1  2 12  2  2  4  5  3
+# Install development version from GitHub
+devtools::install_github("r-lib/pkgdown")
 ```
 
-Allowed distributions
----------------------
 
-You can use any distribution that conforms to the following expectations:
+To build
+========
 
--   It has a distribution function like `p[dist name]` available
--   It has a quantile function like `q[dist name]` available
-
-These can be loaded from a package or created on the fly, but must exist when the `distcrete()` function is called.
-
-Installation
-------------
-
-You can install it from CRAN with:
+After modifying the relevant files, run the following command from R console.
 
 ``` r
-install.packages("distcrete")
+pkgdown::build_site()
 ```
 
-You can install `distcrete` the most up to date version from github with:
+Website pages are generated on docs folder. 
 
-``` r
-# install.packages("devtools")
-devtools::install_github("reconhub/distcrete")
+Then you can copy the `docs/` folder to target repo directory and run 
+
+```
+./updateWebsite.sh
 ```
 
-Tests
------
+Known issues
+============
 
-``` r
-devtools::test()
-#> Loading distcrete
-#> Loading required package: testthat
-#> Testing distcrete
-#> distcrete: .....................................................................................................................................
-#> utils: ...............
-#> 
-#> DONE ======================================================================
-```
+Pkgdown generates `reference` tab in the homepage (reference they mean here is not references used to
+build repo) even though there is nothing in the path it looks for.
+
+In order to fix this `build_site` needs to be tweaked so that `build_home` doesn't build placeholder 
+for reference, later call `build_reference` needs to be disabled. 
+
+Currently I have decided not to worry about fix and just live with it.
