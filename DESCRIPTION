@@ -1,21 +1,11 @@
-Package: distcrete
-Title: Discrete Distribution Approximations
+Package: githubPages
+Title: githubPages
 Version: 1.0.0
 Authors@R: c(
-      person("Steph","Locke", role="cre",
-             email = "steph@itsalocke.com"),
-      person("Rich", "FitzJohn", role = c("aut"),
-             email = "rich.fitzjohn@gmail.com"),
-      person("Anne", "Cori", role = "aut"),
-      person("Thibaut", "Jombart", role = "aut"))
-Description: Discrete approximations of continuous distributions.
-License: MIT + file LICENSE
+      person("Ragu", "Manjegowda", , "raghavendrahm0410@gmail.com", c("aut", "cre"))
+      )
+Description: I have created this repository to generate static websites for my projects based on the README.md files. The skeletons used here are modified according to the target repo for which I want to create the website.
+License: MIT
 LazyData: true
-URL: https://github.com/reconhub/distcrete
-BugReports: https://github.com/reconhub/distcrete/issues
-Suggests:
-    knitr,
-    rmarkdown,
-    testthat
-RoxygenNote: 6.0.1
-VignetteBuilder: knitr
+URL: https://github.com/ragu-manjegowda/githubPages
+BugReports: https://github.com/ragu-manjegowda/githubPages/issues
