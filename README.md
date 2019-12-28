@@ -5,34 +5,42 @@ githubPages
 I have created this repository to generate static websites for my projects based on the README.md files. 
 The skeletons used here are modified according to the target repo for which I want to create the website.
 
+Usage:
+=======
+To make life easy I have created scripts, all you have to do is copy the files in this 
+repo to your project repo, modify the README.md and DESCRIPTON files and use the below 
+script.
 
-Dependencies to install
-=======================
-```r
-# Install release version from CRAN
-install.packages("pkgdown")
-
-# Install development version from GitHub
-devtools::install_github("r-lib/pkgdown")
+1. To build the website and puts in folder called docs
+```shell
+$ ./buildWeb.sh
 ```
 
+2. To create a branch and push it
+```shell
+$ ./updateWeb.sh
+```
 
-To build
+To build manually
 ========
 
-After modifying the relevant files, run the following command from R console.
-
-``` r
-pkgdown::build_site()
+Pull my docker image
+```
+$ docker pull ragumanjegowda/docker
 ```
 
-Website pages are generated on docs folder. 
-
-Then you can copy the `docs/` folder to target repo directory and run 
+Run the docker image and navigate to project folder (refer scripts/run.sh)
+After modifying the relevant files, run the following from command prompt.
 
 ```
-./updateWebsite.sh
+# To enter R consolde
+$ R
+# To build website
+> pkgdown::build_site()
 ```
+
+Website pages are generated on docs folder. And firefox browser launches
+from the docker image showing the view.
 
 Known issues
 ============
