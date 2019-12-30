@@ -1,5 +1,5 @@
 
-githubPages
+github-pages
 ===========
 
 I have created this repository to generate static websites for my projects based on the README.md files. 
@@ -44,6 +44,8 @@ from the docker image showing the view.
 
 Known issues
 ============
+
+While running `buildWebsite` script and it throws any error related to source code in the project try deleting all the contents except README and media files. These are the only two things needed to generate `docs` folder.
 
 Pkgdown generates `reference` tab in the homepage (reference they mean here is not references used to
 build repo) even though there is nothing in the path it looks for.
