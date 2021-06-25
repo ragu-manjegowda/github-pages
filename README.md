@@ -12,14 +12,12 @@ repo to your project repo, modify the README.md and DESCRIPTON files and use the
 script.
 
 1. To build the website and puts in folder called docs
-```shell
-$ ./buildWeb.sh
-```
+
+        $ ./buildWeb.sh
 
 2. To create a branch and push it
-```shell
-$ ./updateWeb.sh
-```
+
+        $ ./updateWeb.sh
 
 To build manually
 ========

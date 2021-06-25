@@ -1,0 +1,13 @@
+
+destination: "./docs"
+
+template:
+  params:
+    bootswatch: readable
+
+navbar:
+  title:
+  left:
+    - icon: fa-home fa-lg
+      href: index.html
+
