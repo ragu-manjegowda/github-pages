@@ -45,10 +45,3 @@ Known issues
 
 While running `buildWebsite` script and it throws any error related to source code in the project try deleting all the contents except README and media files. These are the only two things needed to generate `docs` folder.
 
-Pkgdown generates `reference` tab in the homepage (reference they mean here is not references used to
-build repo) even though there is nothing in the path it looks for.
-
-In order to fix this `build_site` needs to be tweaked so that `build_home` doesn't build placeholder 
-for reference, later call `build_reference` needs to be disabled. 
-
-Currently I have decided not to worry about fix and just live with it.
